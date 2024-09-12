@@ -583,7 +583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8113208, g: 0.8113208, b: 0.8113208, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -968,8 +968,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294808568
-  m_fontColor: {r: 0.97239125, g: 0.5747152, b: 0.990566, a: 1}
+    rgba: 4292707801
+  m_fontColor: {r: 0.85151, g: 0.5199359, b: 0.8679245, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1596,6 +1596,14 @@ PrefabInstance:
     - target: {fileID: 1480281512247042450, guid: ddc04deba733d4d44a657469e5328b25, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4471879180901408862, guid: ddc04deba733d4d44a657469e5328b25, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4471879180901408862, guid: ddc04deba733d4d44a657469e5328b25, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
       objectReference: {fileID: 0}
     - target: {fileID: 7289528946257660122, guid: ddc04deba733d4d44a657469e5328b25, type: 3}
       propertyPath: m_IsActive
