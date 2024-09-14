@@ -44,7 +44,7 @@ public abstract class Enemy : MonoBehaviour
     {
         if (playerOnRange)
         {
-            player = Physics2D.OverlapCircle(transform.position, detectionRange, playerLayer).transform;
+            player = Physics2D.OverlapCircle(transform.position, detectionRange, playerLayer).transform; 
         }
         else
         {

@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuUI : MonoBehaviour
 {
+    public AudioSource clickSound;
+
     public float delayTimer;
 
     int index;
@@ -28,7 +30,7 @@ public class MainMenuUI : MonoBehaviour
 
     IEnumerator Delay()
     {
-        // TODO: Somzinho
+        clickSound.Play();
 
         yield return new WaitForSeconds(delayTimer);
         SceneManager.LoadScene(index);

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
+    public AudioSource hurtSound;
+
     public int currentHealth;
     public int maxHealth = 10;
     public bool isDead;
@@ -40,6 +42,8 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         anim.SetTrigger("hurt");
+
+        hurtSound.Play();
 
         currentHealth -= damage;
     }

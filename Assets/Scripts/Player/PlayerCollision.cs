@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
+    public HealthBar healthBar;
+    public AudioSource hurtSound;
     public bool isInvunerable;
     public float invunerabilityTime = 0.5f;
 
@@ -21,11 +23,13 @@ public class PlayerCollision : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Enemy") && !isInvunerable)
         {
+            hurtSound.Play();
+
             anim.SetTrigger("hurt");
 
-            playerHealth.currentHealth--;
+            playerHealth.currentHealth -= other.gameObject.GetComponent<Enemy>().attackDamage;
 
-            // other.gameObject.GetComponent<EnemyAttack>();
+            healthBar.SetCurrentHealth(playerHealth.currentHealth);
 
             StartCoroutine(InvunerableTimer());
         }
@@ -35,11 +39,13 @@ public class PlayerCollision : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy") && !isInvunerable)
         {
+            hurtSound.Play();
+
             anim.SetTrigger("hurt");
 
-            playerHealth.currentHealth--;
+            playerHealth.currentHealth -= other.gameObject.GetComponent<Enemy>().attackDamage;
 
-            // other.gameObject.GetComponent<EnemyAttack>();
+            healthBar.SetCurrentHealth(playerHealth.currentHealth);
 
             StartCoroutine(InvunerableTimer());
         }
@@ -48,9 +54,7 @@ public class PlayerCollision : MonoBehaviour
     IEnumerator InvunerableTimer()
     {
         isInvunerable = true;
-        Debug.Log("O player está invunerável");
         yield return new WaitForSeconds(invunerabilityTime);
         isInvunerable = false;
-        Debug.Log("O Player não está mais invunerável");
     }
 }

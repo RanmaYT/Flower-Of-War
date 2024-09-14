@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    public AudioSource attackSound;
     public Transform attackCenter;
     public LayerMask enemyLayer;
     public float attackRadius;
@@ -12,12 +13,14 @@ public class PlayerAttack : MonoBehaviour
     public float knockBackForce = 10f;
 
     private Animator anim;
+    private PlayerPoints playerPoints;
     private bool canAttack = true;
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
+        playerPoints = GetComponent<PlayerPoints>();
     }
 
     // Update is called once per frame
@@ -34,11 +37,15 @@ public class PlayerAttack : MonoBehaviour
         // Trigger attack anim
         anim.SetTrigger("attacked");
 
+        // Attack Sound
+        attackSound.Play();
+
         // Check enemys hitted, do damage and push them away
         Collider2D[] enemys = Physics2D.OverlapCircleAll(attackCenter.position, attackRadius, enemyLayer);
         foreach(Collider2D enemy in enemys)
         {
             enemy.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
+            playerPoints.points++;
         }
 
         // Trigger the attack cooldown
